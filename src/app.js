@@ -34,13 +34,19 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'API documentation for Students and Courses',
     },
-    servers: [{ url: 'http://localhost:3000/' }],
+    servers: [
+      {
+        url: process.env.RENDER_EXTERNAL_URL || 'http://localhost:3000',
+        description: 'Current environment',
+      },
+    ],
   },
   apis: ['./src/routes/*.js'], // look for annotations in route files
 };
 
 const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+
 
 // --- Root route ---
 app.get('/', (req, res) => {
