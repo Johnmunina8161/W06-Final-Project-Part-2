@@ -34,7 +34,7 @@ const swaggerOptions = {
       version: '1.0.0',
       description: 'API documentation for Students and Courses',
     },
-    servers: [{ url: 'http://localhost:3000/api-docs' }],
+    servers: [{ url: 'http://localhost:3000/' }],
   },
   apis: ['./src/routes/*.js'], // look for annotations in route files
 };
