@@ -48,10 +48,11 @@ const swaggerSpec = swaggerJsdoc(swaggerOptions);
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerSpec));
 
 
-// --- Root route ---
+// --- Root route redirect ---
 app.get('/', (req, res) => {
-  res.send('Welcome to W06 Final Project API!');
+  res.redirect('/api-docs');
 });
+
 
 app.use('/api/students', studentsRoutes);
 app.use('/api/courses', coursesRoutes);
